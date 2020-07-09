@@ -52,7 +52,8 @@ lcd.begin(7); //spi-clk=SPI_CLOCK_DIV4 , display initialization(LCD- clear scree
 
 **Void Loop**
 
-`{
+`
+{
 
 
     btn.tick();   //for invoking shortpress or long press when button pressed
@@ -61,7 +62,8 @@ lcd.begin(7); //spi-clk=SPI_CLOCK_DIV4 , display initialization(LCD- clear scree
 `
     
 
-`if(lcd.touchZ()||rstCode>1) //touch press or reset code changed
+`
+if(lcd.touchZ()||rstCode>1) //touch press or reset code changed
   {
    
   
@@ -76,9 +78,11 @@ lcd.begin(7); //spi-clk=SPI_CLOCK_DIV4 , display initialization(LCD- clear scree
         lcd.drawText(100, 80,x, RGB(255,0,0), RGB(255,255,255), 11);
 
       
-      }`
+      }
+      `
       
-      `if(btntc>0){ //if button pressed atleast once
+      `
+      if(btntc>0){ //if button pressed atleast once
 
         String mCompare = giveBackAlpha(); //Comparing with Morse Code using giveBackAlpha 
         
@@ -92,9 +96,11 @@ lcd.begin(7); //spi-clk=SPI_CLOCK_DIV4 , display initialization(LCD- clear scree
         delay(3000);
         btntc=0;
         rstCode=2;
-        }`
+        }
+        `
         
-        `else if(btntc>=giveBackSize()){ //if number of time for button pressed is equals to or greater than the requiered number for morse code
+        `
+        else if(btntc>=giveBackSize()){ //if number of time for button pressed is equals to or greater than the requiered number for morse code
            noTone(buzzer);
 
            lcd.fillScreen(RGB(255 ,0,0));
@@ -104,6 +110,7 @@ lcd.begin(7); //spi-clk=SPI_CLOCK_DIV4 , display initialization(LCD- clear scree
         btntc=0;
         rstCode=2; // entry to the loop again by resetting 
           }
+          
 `
 
 
