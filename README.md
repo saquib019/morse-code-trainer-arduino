@@ -64,9 +64,8 @@ lcd.begin(7); //spi-clk=SPI_CLOCK_DIV4 , display initialization(LCD- clear scree
 
 `
 if(lcd.touchZ()||rstCode>1) //touch press or reset code changed
+
   {
-   
-  
      rstCode=0;
      disp ="";
      morse ="";
@@ -76,10 +75,8 @@ if(lcd.touchZ()||rstCode>1) //touch press or reset code changed
          //clear screen
         lcd.fillScreen(RGB(0 ,255,255));
         lcd.drawText(100, 80,x, RGB(255,0,0), RGB(255,255,255), 11);
-
       
-      }
-      `
+  }`
       
       `
       if(btntc>0){ //if button pressed atleast once
@@ -91,18 +88,16 @@ if(lcd.touchZ()||rstCode>1) //touch press or reset code changed
         noTone(buzzer);
         lcd.fillScreen(RGB(0 ,128,0));
         lcd.drawText(10, 80,"CORRECT!", RGB(255,0,0), RGB(255,255,255),4 );
-        
-
-        delay(3000);
+         delay(3000);
         btntc=0;
         rstCode=2;
         }
         `
         
         `
-        else if(btntc>=giveBackSize()){ //if number of time for button pressed is equals to or greater than the requiered number for morse code
+       else if(btntc>=giveBackSize()){ //if number of time for button pressed is equals to or greater than the requiered number for morse code
            noTone(buzzer);
-
+           
            lcd.fillScreen(RGB(255 ,0,0));
            lcd.drawText(10, 80,"Wrong!", RGB(255,255,255), RGB(255,0,0),4 );
           
