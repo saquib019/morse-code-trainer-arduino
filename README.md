@@ -40,9 +40,11 @@ This Arduino library is improving the usage of a single button for input. It sho
 pinMode(buzzer, OUTPUT); // Set buzzer - pin 2 as an output
 
 //attach shortclick to button
+
 btn.attachClick(singleClick); 
 
 //attach longclick to button
+
 btn.attachLongPressStart(longPress); 
 
 lcd.begin(7); //spi-clk=SPI_CLOCK_DIV4 , display initialization(LCD- clear screen, brightness 50% given)
