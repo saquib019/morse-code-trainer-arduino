@@ -22,4 +22,43 @@ This Arduino library is improving the usage of a single button for input. It sho
 | int btntc=0; | Counting how many times button was pressed in a single test
 | int rstCode=0; | Control integer for resetting the page |
 | const int buzzer = 2; | Buzzer to arduino pin 2 | 
+| OneButton btn(BUTTON_PIN, false); | Declaring the button |
+
+**Function**
+
+| Type | Name | Description |
+| ------ | ------ | ------ |
+| MI0283QT2 | lcd | Declare only one display (MI0283QT2 Adapter v1) | 
+| String | randalpha |seeding the random operator. Generating a random alphabet upon calling which has been mod by 26 (0-26)
+| String | giveBackAlpha | for comparing trainer Alphabet with button pressed morese code alphabet |
+| int | giveBackSize | For getting the size of the morse code of the trainer value |
+| void | longPress | Configuring Longpress Button |
+| void  | singleClick | Configuring short press button |
+
+**Setup**
+
+pinMode(buzzer, OUTPUT); // Set buzzer - pin 2 as an output
+
+//attach shortclick to button
+btn.attachClick(singleClick); 
+
+//attach longclick to button
+btn.attachLongPressStart(longPress); 
+
+lcd.begin(7); //spi-clk=SPI_CLOCK_DIV4 , display initialization(LCD- clear screen, brightness 50% given)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
