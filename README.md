@@ -23,12 +23,13 @@ This Arduino library is improving the usage of a single button for input. It sho
 | int rstCode=0; | Control integer for resetting the page |
 | const int buzzer = 2; | Buzzer to arduino pin 2 | 
 | OneButton btn(BUTTON_PIN, false); | Declaring the button |
+| MI0283QT2 | lcd | Declare only one display (MI0283QT2 Adapter v1) | 
 
 **Function**
 
 | Type | Name | Description |
 | ------ | ------ | ------ |
-| MI0283QT2 | lcd | Declare only one display (MI0283QT2 Adapter v1) | 
+
 | String | randalpha |seeding the random operator. Generating a random alphabet upon calling which has been mod by 26 (0-26)
 | String | giveBackAlpha | for comparing trainer Alphabet with button pressed morese code alphabet |
 | int | giveBackSize | For getting the size of the morse code of the trainer value |
@@ -49,8 +50,61 @@ btn.attachLongPressStart(longPress);
 
 lcd.begin(7); //spi-clk=SPI_CLOCK_DIV4 , display initialization(LCD- clear screen, brightness 50% given)
 
+**Void Loop**
+
+`{
 
 
+    btn.tick();   //for invoking shortpress or long press when button pressed
+    if(!btn.isLongPressed())noTone(buzzer); //turning of the buzzer
+    
+`
+    
+
+`if(lcd.touchZ()||rstCode>1) //touch press or reset code changed
+  {
+   
+  
+     rstCode=0;
+     disp ="";
+     morse ="";
+    
+       
+          x = randalpha(); //calling the random alphabet
+         //clear screen
+        lcd.fillScreen(RGB(0 ,255,255));
+        lcd.drawText(100, 80,x, RGB(255,0,0), RGB(255,255,255), 11);
+
+      
+      }`
+      
+      `if(btntc>0){ //if button pressed atleast once
+
+        String mCompare = giveBackAlpha(); //Comparing with Morse Code using giveBackAlpha 
+        
+        if(mCompare.compareTo(x)==0){
+        delay(500);
+        noTone(buzzer);
+        lcd.fillScreen(RGB(0 ,128,0));
+        lcd.drawText(10, 80,"CORRECT!", RGB(255,0,0), RGB(255,255,255),4 );
+        
+
+        delay(3000);
+        btntc=0;
+        rstCode=2;
+        }`
+        
+        `else if(btntc>=giveBackSize()){ //if number of time for button pressed is equals to or greater than the requiered number for morse code
+           noTone(buzzer);
+
+           lcd.fillScreen(RGB(255 ,0,0));
+           lcd.drawText(10, 80,"Wrong!", RGB(255,255,255), RGB(255,0,0),4 );
+          
+           delay(3000);
+        btntc=0;
+        rstCode=2; // entry to the loop again by resetting 
+          }
+`
 
 
 
