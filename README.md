@@ -1,7 +1,9 @@
 **About**
+
 As humans we communicate with each other by our natural sensors but what we should use to share some secret information with someone? A way by which one person can pass on information in such a way that even the third person can see the message but will not able to understand without knowing the key. For this reason, we have used Morse Code communication. Morse Code is a method of exchanging information that is done by showing the original letters to the combo of a dot . and dashes - (ex: A = .. , B = -...). Here we have used Arduino to design the Morse code trainer with Watterott MIO283QT-2 Touch Screen Panel with shield to show the random original letters and a button to press the Morse code with a buzzer to beep. If the pressed Morse Code matches with the given letter then it will show "Correct" on the display or else the "Wrong" will be visible.
 
 **Arduino OneButton Library**
+
 This Arduino library is improving the usage of a single button for input. It shows how to use an digital input pin with a single pushbutton attached for detecting some of the typical button press events like single clicks, double clicks and long-time pressing. This enables the reuse the same button for multiple functions and lowers the hardware investments.
 
 **Getting Started**
