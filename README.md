@@ -25,16 +25,17 @@ This Arduino library is improving the usage of a single button for input. It sho
 | OneButton btn(BUTTON_PIN, false); | Declaring the button |
 | MI0283QT2 | lcd | Declare only one display (MI0283QT2 Adapter v1) | 
 
+
 **Function**
 
 | Type | Name | Description |
 | ------ | ------ | ------ |
-
 | String | randalpha |seeding the random operator. Generating a random alphabet upon calling which has been mod by 26 (0-26)
 | String | giveBackAlpha | for comparing trainer Alphabet with button pressed morese code alphabet |
 | int | giveBackSize | For getting the size of the morse code of the trainer value |
 | void | longPress | Configuring Longpress Button |
 | void  | singleClick | Configuring short press button |
+
 
 **Setup**
 
